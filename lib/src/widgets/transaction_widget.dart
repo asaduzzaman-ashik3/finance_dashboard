@@ -1,7 +1,10 @@
+import 'package:finance_dashboard/src/widgets/quick_action_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget transaction() {
+import '../Pages/transaction_page.dart';
+
+Widget transaction(BuildContext context) {
   final transactions = [
     {
       'icon': Icons.shopping_bag,
@@ -38,18 +41,27 @@ Widget transaction() {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text(
+          children: [
+            const Text(
               'Recent Transactions',
+
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            Text(
-              'See All',
-              style: TextStyle(color: Color(0xFFd8b4fe), fontSize: 14),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => transactionPage()),
+                );
+              },
+              child: const Text(
+                'See All',
+                style: TextStyle(color: Color(0xFFd8b4fe), fontSize: 14),
+              ),
             ),
           ],
         ),
@@ -107,8 +119,7 @@ Widget transaction() {
                     Text(
                       transaction['amount'] as String,
                       style: TextStyle(
-                        color:
-                        (transaction['amount'] as String).startsWith('+')
+                        color: (transaction['amount'] as String).startsWith('+')
                             ? const Color(0xFF4ade80)
                             : const Color(0xFFf87171),
                         fontWeight: FontWeight.bold,
@@ -125,3 +136,4 @@ Widget transaction() {
     ),
   );
 }
+
