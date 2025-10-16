@@ -45,7 +45,7 @@ class Dashboard extends StatelessWidget {
                 quickAction(),
                 SizedBox(height: 20),
                 trancsaction(),
-                const SizedBox(height: 24,)
+                const SizedBox(height: 24),
               ],
             ),
           ),
@@ -139,7 +139,10 @@ class Dashboard extends StatelessWidget {
                             size: 30,
                           ),
                           SizedBox(width: 5),
-                          Text("Income", style: TextStyle(color: Colors.white,fontSize: 16)),
+                          Text(
+                            "Income",
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
                         ],
                       ),
                       Text(
@@ -173,7 +176,10 @@ class Dashboard extends StatelessWidget {
                             size: 30,
                           ),
                           SizedBox(width: 5),
-                          Text("Expenses", style: TextStyle(color: Colors.white,fontSize: 16)),
+                          Text(
+                            "Expenses",
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
                         ],
                       ),
                       Text(
@@ -221,7 +227,11 @@ class Dashboard extends StatelessWidget {
                   ),
                 ),
                 padding: EdgeInsets.all(20),
-                child: Icon(Icons.trending_up_outlined, color: Colors.white,size: 30,),
+                child: Icon(
+                  Icons.trending_up_outlined,
+                  color: Colors.white,
+                  size: 30,
+                ),
               ),
             ),
             SizedBox(width: 10),
@@ -234,7 +244,11 @@ class Dashboard extends StatelessWidget {
                   ),
                 ),
                 padding: EdgeInsets.all(20),
-                child: Icon(Icons.trending_down_outlined, color: Colors.white,size: 30,),
+                child: Icon(
+                  Icons.trending_down_outlined,
+                  color: Colors.white,
+                  size: 30,
+                ),
               ),
             ),
             SizedBox(width: 10),
@@ -247,7 +261,11 @@ class Dashboard extends StatelessWidget {
                   ),
                 ),
                 padding: EdgeInsets.all(20),
-                child: Icon(Icons.credit_card_outlined, color: Colors.white,size: 30,),
+                child: Icon(
+                  Icons.credit_card_outlined,
+                  color: Colors.white,
+                  size: 30,
+                ),
               ),
             ),
             SizedBox(width: 10),
@@ -260,22 +278,43 @@ class Dashboard extends StatelessWidget {
                   ),
                 ),
                 padding: EdgeInsets.all(20),
-                child: Icon(Icons.account_balance_wallet_outlined, color: Colors.white,size: 30,),
+                child: Icon(
+                  Icons.account_balance_wallet_outlined,
+                  color: Colors.white,
+                  size: 30,
+                ),
               ),
             ),
-
           ],
         ),
       ],
     );
   }
 
-  Widget trancsaction(){
-      return Column(
-        children: [
-          
-        ],
-      );
+  Widget trancsaction() {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Recent Transaction",
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              "See All",
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.white.withOpacity(0.7),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
   }
-
 }
