@@ -6,7 +6,7 @@ class ImagesService {
 
 
   Future<List<dynamic>>getData() async {
-      final url = Uri.parse('https://jsonplaceholder.typicode.com/photos');
+      final url = Uri.parse('https://fakestoreapi.com/products');
 
       final responce = await http.get(url);
       
