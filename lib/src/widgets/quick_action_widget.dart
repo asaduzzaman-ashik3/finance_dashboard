@@ -126,7 +126,7 @@ Widget quickAction(BuildContext context) {
                 ),
                 padding: EdgeInsets.all(20),
                 child: Icon(
-                  Icons.account_balance_wallet_outlined,
+                  Icons.shopping_bag_outlined,
                   color: Colors.white,
                   size: 30,
                 ),

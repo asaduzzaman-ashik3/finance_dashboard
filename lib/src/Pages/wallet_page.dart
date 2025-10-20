@@ -32,7 +32,7 @@ class _WalletPageState extends State<WalletPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Wallet Page')),
+      appBar: AppBar(title: const Text('Products')),
       floatingActionButton: FloatingActionButton(onPressed: (){showModalBottomSheet(context: context, builder: (BuildContext context) {
         return SizedBox(
           height: 400,

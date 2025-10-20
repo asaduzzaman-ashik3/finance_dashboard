@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'src/Pages/search_page.dart';
+import 'src/Pages/settings_page.dart';
 import 'src/widgets/appbar_widget.dart';
 import 'src/widgets/balance_card_widget.dart';
 import 'src/widgets/quick_action_widget.dart';
@@ -9,9 +11,14 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,8 +30,49 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
+
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  int currentIndex = 0;
+
+  List<Widget> pages = [
+    Profile(),
+    Settings(),
+    Search()
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar:
+
+      BottomNavigationBar(items: [
+        BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: 'Profile',activeIcon: Icon(Icons.person)),
+        BottomNavigationBarItem(icon: Icon(Icons.settings_outlined), label: 'Settings',activeIcon: Icon(Icons.settings)),
+        BottomNavigationBarItem(icon: Icon(Icons.search_outlined), label: 'Search',activeIcon: Icon(Icons.search)),
+      ],
+      currentIndex: currentIndex,
+        onTap: (index){
+        setState(() {
+          currentIndex = index;
+        });
+        },
+      backgroundColor: Colors.black,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+      ),
+      body: pages[currentIndex]
+    );
+  }
+}
+
+
+class Profile extends StatelessWidget {
+  const Profile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,5 +106,7 @@ class Dashboard extends StatelessWidget {
       ),
     );
   }
-
 }
+
+
+
